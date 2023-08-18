@@ -611,7 +611,11 @@ describe('SnapController', () => {
     );
 
     expect(messenger.call).toHaveBeenNthCalledWith(2, 'SnapsRegistry:get', {
-      [MOCK_SNAP_ID]: { version: '1.0.0', checksum: DEFAULT_SNAP_SHASUM },
+      [MOCK_SNAP_ID]: {
+        version: '1.0.0',
+        checksum: DEFAULT_SNAP_SHASUM,
+        permissions: getSnapManifest().initialPermissions,
+      },
     });
 
     expect(messenger.call).toHaveBeenNthCalledWith(
@@ -751,10 +755,22 @@ describe('SnapController', () => {
   });
 
   it('throws an error if snap is not on allowlist and allowlisting is required', async () => {
+    const { manifest, sourceCode, svgIcon } = getSnapFiles({
+      manifest: getSnapManifest({
+        initialPermissions: {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          snap_getBip44Entropy: [{ coinType: 1 }],
+        },
+      }),
+    });
+
     const controller = getSnapController(
       getSnapControllerOptions({
         featureFlags: { requireAllowlist: true },
-        detectSnapLocation: loopbackDetect(),
+        detectSnapLocation: loopbackDetect({
+          manifest,
+          files: [sourceCode, svgIcon as VirtualFile],
+        }),
       }),
     );
 

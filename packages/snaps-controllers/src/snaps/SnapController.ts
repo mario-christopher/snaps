@@ -34,6 +34,7 @@ import type {
   Snap,
   SnapId,
   SnapManifest,
+  SnapPermissions,
   SnapRpcHook,
   SnapRpcHookArgs,
   StatusContext,
@@ -91,6 +92,7 @@ import type {
   TerminateSnapAction,
 } from '../services';
 import { hasTimedOut, setDiff, withTimeout } from '../utils';
+import { RESTRICTED_PERMISSIONS } from './constants';
 import { handlerEndowments, SnapEndowments } from './endowments';
 import { getRpcCaveatOrigins } from './endowments/rpc';
 import type { SnapLocation } from './location';
@@ -1055,7 +1057,7 @@ export class SnapController extends BaseController<
 
   async #assertIsInstallAllowed(
     snapId: ValidatedSnapId,
-    snapInfo: SnapsRegistryInfo,
+    snapInfo: SnapsRegistryInfo & { permissions: SnapPermissions },
   ) {
     const results = await this.messagingSystem.call('SnapsRegistry:get', {
       [snapId]: snapInfo,
@@ -1071,6 +1073,9 @@ export class SnapController extends BaseController<
       );
     } else if (
       this.#featureFlags.requireAllowlist &&
+      Object.keys(snapInfo.permissions).some((permission) =>
+        RESTRICTED_PERMISSIONS.includes(permission),
+      ) &&
       result.status !== SnapsRegistryStatus.Verified
     ) {
       throw new Error(
@@ -1902,6 +1907,7 @@ export class SnapController extends BaseController<
       await this.#assertIsInstallAllowed(snapId, {
         version: newVersion,
         checksum: newSnap.manifest.result.source.shasum,
+        permissions: newSnap.manifest.result.initialPermissions,
       });
 
       const processedPermissions = processSnapPermissions(
@@ -2056,6 +2062,7 @@ export class SnapController extends BaseController<
         await this.#assertIsInstallAllowed(snapId, {
           version: manifest.version,
           checksum: manifest.source.shasum,
+          permissions: manifest.initialPermissions,
         });
 
         return this.#set({
