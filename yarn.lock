@@ -3780,11 +3780,9 @@ __metadata:
   linkType: soft
 
 "@metamask/browser-passworder@npm:^4.1.0":
-  version: 4.2.0
-  resolution: "@metamask/browser-passworder@npm:4.2.0"
-  dependencies:
-    "@metamask/utils": ^8.2.0
-  checksum: 03b76357942d25a6316d6a03a8bc839cb18e53d9f95fc2787e0fbbcf13eeb2485ece47a2758e928d04635f8dbaa598794f2ecd0313e7c91f989bf11f2a0adec5
+  version: 4.1.0
+  resolution: "@metamask/browser-passworder@npm:4.1.0"
+  checksum: f1edb3b75594b8e8d075b3134c9ce6c73573160eb48184ef722b9d96a5763db1e2e9acb166fc5c66c7c82936e134a02a3fb4c0022ca9a948857a30181cb84d7e
   languageName: node
   linkType: hard
 
@@ -4238,17 +4236,16 @@ __metadata:
   linkType: hard
 
 "@metamask/eth-sig-util@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@metamask/eth-sig-util@npm:7.0.0"
+  version: 7.0.1
+  resolution: "@metamask/eth-sig-util@npm:7.0.1"
   dependencies:
     "@ethereumjs/util": ^8.1.0
     "@metamask/abi-utils": ^2.0.2
     "@metamask/utils": ^8.1.0
     ethereum-cryptography: ^2.1.2
-    ethjs-util: ^0.1.6
     tweetnacl: ^1.0.3
     tweetnacl-util: ^0.15.1
-  checksum: bcb6bd23333e0b4dcb49f8772483dcb4c27e75405a2b111f1eafe0b341b221cf86ba4843e91c567d8836e80b6049d8e2f89c6766c62bbd256533e0f256f6d846
+  checksum: 98d056bd83aeb2d29ec3de09cd18e67d97ea295a59d405a9ce3fe274badd2d4f18da1fe530a266b4c777650855ed75ecd3577decd607a561e938dd7a808c5839
   languageName: node
   linkType: hard
 
@@ -5295,7 +5292,7 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^2.5.1
     "@metamask/auto-changelog": ^3.4.3
-    "@metamask/base-controller": ^3.2.3
+    "@metamask/base-controller": ^3.2.0
     "@metamask/browser-passworder": ^4.1.0
     "@metamask/eslint-config": ^12.1.0
     "@metamask/eslint-config-jest": ^12.1.0
@@ -6336,8 +6333,8 @@ __metadata:
   linkType: hard
 
 "@reduxjs/toolkit@npm:^1.9.5":
-  version: 1.9.7
-  resolution: "@reduxjs/toolkit@npm:1.9.7"
+  version: 1.9.5
+  resolution: "@reduxjs/toolkit@npm:1.9.5"
   dependencies:
     immer: ^9.0.21
     redux: ^4.2.1
@@ -6351,7 +6348,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: ac25dec73a5d2df9fc7fbe98c14ccc73919e5ee1d6f251db0d2ec8f90273f92ef39c26716704bf56b5a40189f72d94b4526dc3a8c7ac3986f5daf44442bcc364
+  checksum: 54672c5593d05208af577e948a338f23128d3aa01ef056ab0d40bcfa14400cf6566be99e11715388f12c1d7655cdf7c5c6b63cb92eb0fecf996c454a46a3914c
   languageName: node
   linkType: hard
 
@@ -12575,16 +12572,6 @@ __metadata:
     bn.js: 4.11.6
     number-to-bn: 1.7.0
   checksum: df6b4752ff7461a59a20219f4b1684c631ea601241c39660e3f6c6bd63c950189723841c22b3c6c0ebeb3c9fc99e0e803e3c613101206132603705fcbcf4def5
-  languageName: node
-  linkType: hard
-
-"ethjs-util@npm:^0.1.6":
-  version: 0.1.6
-  resolution: "ethjs-util@npm:0.1.6"
-  dependencies:
-    is-hex-prefixed: 1.0.0
-    strip-hex-prefix: 1.0.0
-  checksum: 1f42959e78ec6f49889c49c8a98639e06f52a15966387dd39faf2930db48663d026efb7db2702dcffe7f2a99c4a0144b7ce784efdbf733f4077aae95de76d65f
   languageName: node
   linkType: hard
 
