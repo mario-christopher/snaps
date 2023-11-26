@@ -173,6 +173,7 @@ export const PermissionsStruct = type({
     ),
   ),
   snap_getEntropy: optional(object({})),
+  snap_getLocale: optional(object({})),
   wallet_snap: optional(SnapIdsStruct),
 });
 /* eslint-enable @typescript-eslint/naming-convention */
